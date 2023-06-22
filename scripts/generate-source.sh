@@ -26,4 +26,6 @@ npx --yes @openapitools/openapi-generator-cli generate -i elements.json \
   "--additional-properties=packageVersion='$version'" \
   "--additional-properties=httpUserAgent='DumbSolutions.ShipmondoApi.Dotnet/$version'" \
   --additional-properties=packageName=ShipmondoApi.Dotnet && \
+  dotnet add src/ShipmondoApi.Dotnet.Test/ShipmondoApi.Dotnet.Test.csproj package Faker.Net --version "2.0.154" && \
+  dotnet add src/ShipmondoApi.Dotnet.Test/ShipmondoApi.Dotnet.Test.csproj package NSubstitute --version "5.0.0" && \
   node patch-source-files.js
