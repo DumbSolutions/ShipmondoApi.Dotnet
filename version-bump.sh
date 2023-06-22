@@ -74,6 +74,6 @@ mv "$temp_file" "$file_path"
 
 echo "Updated csproj to $new_version"
 scripts/generate-source.sh
-git add .openapi-generator/FILES src
-git commit -m "Bump version $version";
+git add .openapi-generator/FILES src README.md
+git commit -m "Bump version $new_version";
 git tag "v$new_version"
