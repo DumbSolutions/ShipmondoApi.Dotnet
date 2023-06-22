@@ -53,7 +53,7 @@ namespace ShipmondoApi.Dotnet.Model
         /// <param name="date">Requested delivery date..</param>
         /// <param name="fromTime">Requested earliest delivery time..</param>
         /// <param name="toTime">Requested latest delivery time..</param>
-        public ShipmentReceiver(string name = default(string), string attention = default(string), string address1 = default(string), string address2 = default(string), string zipcode = default(string), string city = default(string), string countryCode = default(string), string email = default(string), string mobile = default(string), string telephone = default(string), string instruction = default(string), DateTime date = default(DateTime), string fromTime = default(string), string toTime = default(string))
+        public ShipmentReceiver(string name = default(string), string attention = default(string), string address1 = default(string), string address2 = default(string), string zipcode = default(string), string city = default(string), string countryCode = default(string), string email = default(string), string mobile = default(string), string telephone = default(string), string instruction = default(string), DateTime? date = default(DateTime?), string fromTime = default(string), string toTime = default(string))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -187,9 +187,9 @@ namespace ShipmondoApi.Dotnet.Model
         /// </summary>
         /// <value>Requested delivery date.</value>
         /// <example>&quot;Thu Oct 14 02:00:00 CEST 2021&quot;</example>
-        [DataMember(Name = "date", EmitDefaultValue = false)]
+        [DataMember(Name = "date", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// Requested earliest delivery time.

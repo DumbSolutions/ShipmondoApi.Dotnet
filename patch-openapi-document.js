@@ -6,6 +6,7 @@
 //   2. Modify a specific case where enum isn't generated.
 //      Appears to be a bug in OpenAPI:
 //      https://github.com/OpenAPITools/openapi-generator/issues/2360
+//   3. Fix ReceiverRequest and ShipmentReceiver date field isn't nullable
 const { readFileSync, writeFileSync } = require("fs");
 
 const file = process.argv[2];
@@ -20,5 +21,8 @@ json.info.description = "A unofficial thirdparty library for shipmondo api for d
 delete json.info.contact;
 
 delete json.components.schemas.staff_account.properties.permissions.enum;
+
+json.components.schemas.ReceiverRequest.properties.date.nullable = true;
+json.components.schemas.ShipmentReceiver.properties.date.nullable = true;
 
 writeFileSync(file, JSON.stringify(json), "utf-8");

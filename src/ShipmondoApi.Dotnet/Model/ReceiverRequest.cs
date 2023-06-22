@@ -56,7 +56,7 @@ namespace ShipmondoApi.Dotnet.Model
         /// <param name="toTime">Requested latest delivery time..</param>
         /// <param name="memberId">Carrier member ID. Some products support/require this; e.g., DHL Parcel shipments to Packstations (DHL PostNumber)..</param>
         /// <param name="accessCode">Gate/door code for the carrier to access the receiver&#39;s address..</param>
-        public ReceiverRequest(string name = default(string), string attention = default(string), string address1 = default(string), string address2 = default(string), string zipcode = default(string), string city = default(string), string countryCode = default(string), string vatId = default(string), string email = default(string), string mobile = default(string), string telephone = default(string), string instruction = default(string), DateTime date = default(DateTime), string fromTime = default(string), string toTime = default(string), string memberId = default(string), string accessCode = default(string))
+        public ReceiverRequest(string name = default(string), string attention = default(string), string address1 = default(string), string address2 = default(string), string zipcode = default(string), string city = default(string), string countryCode = default(string), string vatId = default(string), string email = default(string), string mobile = default(string), string telephone = default(string), string instruction = default(string), DateTime? date = default(DateTime?), string fromTime = default(string), string toTime = default(string), string memberId = default(string), string accessCode = default(string))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -201,9 +201,9 @@ namespace ShipmondoApi.Dotnet.Model
         /// </summary>
         /// <value>Requested delivery date.</value>
         /// <example>&quot;Thu Oct 14 02:00:00 CEST 2021&quot;</example>
-        [DataMember(Name = "date", EmitDefaultValue = false)]
+        [DataMember(Name = "date", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// Requested earliest delivery time.

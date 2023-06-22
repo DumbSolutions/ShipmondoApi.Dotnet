@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **Mobile** | **string** | Mobile number of the receiver | [optional] 
 **Telephone** | **string** | Landline phone number of the receiver | [optional] 
 **Instruction** | **string** | Delivery instruction to the carrier. Only applicable for products which support receiver instructions. | [optional] 
-**Date** | **DateTime** | Requested delivery date. | [optional] 
+**Date** | **DateTime?** | Requested delivery date. | [optional] 
 **FromTime** | **string** | Requested earliest delivery time. | [optional] 
 **ToTime** | **string** | Requested latest delivery time. | [optional] 
 **MemberId** | **string** | Carrier member ID. Some products support/require this; e.g., DHL Parcel shipments to Packstations (DHL PostNumber). | [optional] 
