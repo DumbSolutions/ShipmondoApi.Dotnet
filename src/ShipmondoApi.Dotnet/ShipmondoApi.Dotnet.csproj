@@ -6,10 +6,10 @@
     <AssemblyName>ShipmondoApi.Dotnet</AssemblyName>
     <PackageId>ShipmondoApi.Dotnet</PackageId>
     <OutputType>Library</OutputType>
-    <Authors>OpenAPI</Authors>
-    <Company>OpenAPI</Company>
-    <AssemblyTitle>OpenAPI Library</AssemblyTitle>
-    <Description>A library generated from a OpenAPI doc</Description>
+    <Authors>DumbSolutions</Authors>
+    <Company>DumbSolutions</Company>
+    <AssemblyTitle>ShipmondoApi.Dotnet</AssemblyTitle>
+    <Description>A unofficial thirdparty library for shipmondo api for dotnet</Description>
     <Copyright>No Copyright</Copyright>
     <RootNamespace>ShipmondoApi.Dotnet</RootNamespace>
     <Version>1.0.0</Version>
