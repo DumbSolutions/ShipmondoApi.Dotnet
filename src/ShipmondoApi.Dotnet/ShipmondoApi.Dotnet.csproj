@@ -12,7 +12,7 @@
     <Description>A unofficial thirdparty library for shipmondo api for dotnet</Description>
     <Copyright>No Copyright</Copyright>
     <RootNamespace>ShipmondoApi.Dotnet</RootNamespace>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\ShipmondoApi.Dotnet.xml</DocumentationFile>
     <RepositoryUrl>https://github.com/DumbSolutions/ShipmondoApi.Dotnet.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
