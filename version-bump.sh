@@ -52,7 +52,7 @@ new_version="";
 
 # Read each line of the file
 while IFS= read -r line; do
-  # Check if the line starts with "foo" and ends with "baz"
+  # Check if the line has version tag
   if [[ $line == *"<Version>"*"</Version>" ]]; then
     # Extract the version string between the tags
     version=$(echo "$line" | sed -n 's/.*<Version>\(.*\)<\/Version>.*/\1/p')
@@ -62,7 +62,7 @@ while IFS= read -r line; do
 
     modified_line=$(echo "$line" | sed "s/$version/$new_version/")
 
-    # Replace the line with "foo-fobar-baz"
+    # Replace the line with new version"
     line=$(echo "$line" | sed "s/$version/$new_version/")
   fi
   # Append the modified or original line to the temporary file
@@ -73,4 +73,7 @@ done < "$file_path"
 mv "$temp_file" "$file_path"
 
 echo "Updated csproj to $new_version"
+scripts/generate-source.sh
+git add .openapi-generator/FILES src
+git commit -m "Bump version $version";
 git tag "v$new_version"
