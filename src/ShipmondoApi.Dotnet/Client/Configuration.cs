@@ -109,7 +109,7 @@ namespace ShipmondoApi.Dotnet.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = WebUtility.UrlEncode("OpenAPI-Generator/1.0.0/csharp");
+            UserAgent = WebUtility.UrlEncode("DumbSolutions.ShipmondoApi.Dotnet/1.0.0");
             BasePath = "https://app.shipmondo.com/api/public/v3";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
