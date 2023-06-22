@@ -32,7 +32,7 @@ namespace ShipmondoApi.Dotnet.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.0.0";
+        public const string Version = "1.0.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -109,7 +109,7 @@ namespace ShipmondoApi.Dotnet.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = WebUtility.UrlEncode("DumbSolutions.ShipmondoApi.Dotnet/1.0.0");
+            UserAgent = WebUtility.UrlEncode("DumbSolutions.ShipmondoApi.Dotnet/1.0.1");
             BasePath = "https://app.shipmondo.com/api/public/v3";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -517,7 +517,7 @@ namespace ShipmondoApi.Dotnet.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 3\n";
-            report += "    SDK Package Version: 1.0.0\n";
+            report += "    SDK Package Version: 1.0.1\n";
 
             return report;
         }
