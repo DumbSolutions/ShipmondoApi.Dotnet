@@ -5886,6 +5886,7 @@ components:
           description: Requested pickup date.
           example: 2021-10-13
           format: date
+          nullable: true
           type: string
         from_time:
           description: Requested earliest pickup time.
@@ -5950,6 +5951,7 @@ components:
           description: Requested pickup date.
           example: 2021-10-13
           format: date
+          nullable: true
           type: string
         from_time:
           description: Requested earliest pickup time.

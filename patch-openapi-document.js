@@ -24,5 +24,7 @@ delete json.components.schemas.staff_account.properties.permissions.enum;
 
 json.components.schemas.ReceiverRequest.properties.date.nullable = true;
 json.components.schemas.ShipmentReceiver.properties.date.nullable = true;
+json.components.schemas.PickUp.properties.date.nullable = true;
+json.components.schemas.ShipmentPickUpRequest.properties.date.nullable = true;
 
 writeFileSync(file, JSON.stringify(json), "utf-8");

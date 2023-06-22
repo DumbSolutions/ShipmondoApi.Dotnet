@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **City** | **string** |  | [optional] 
 **Telephone** | **string** |  | [optional] 
 **Instruction** | **string** | Pickup instruction to the carrier. Only applicable for products which supports pickup instructions. | [optional] 
-**Date** | **DateTime** | Requested pickup date. | [optional] 
+**Date** | **DateTime?** | Requested pickup date. | [optional] 
 **FromTime** | **string** | Requested earliest pickup time. | [optional] 
 **ToTime** | **string** | Requested latest pickup time. | [optional] 
 

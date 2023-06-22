@@ -46,7 +46,7 @@ namespace ShipmondoApi.Dotnet.Model
         /// <param name="date">Requested pickup date..</param>
         /// <param name="fromTime">Requested earliest pickup time..</param>
         /// <param name="toTime">Requested latest pickup time..</param>
-        public ShipmentPickUpRequest(string name = default(string), string attention = default(string), string address1 = default(string), string address2 = default(string), string countryCode = default(string), string zipcode = default(string), string city = default(string), string telephone = default(string), string instruction = default(string), DateTime date = default(DateTime), string fromTime = default(string), string toTime = default(string))
+        public ShipmentPickUpRequest(string name = default(string), string attention = default(string), string address1 = default(string), string address2 = default(string), string countryCode = default(string), string zipcode = default(string), string city = default(string), string telephone = default(string), string instruction = default(string), DateTime? date = default(DateTime?), string fromTime = default(string), string toTime = default(string))
         {
             this.Name = name;
             this.Attention = attention;
@@ -129,9 +129,9 @@ namespace ShipmondoApi.Dotnet.Model
         /// </summary>
         /// <value>Requested pickup date.</value>
         /// <example>&quot;Wed Oct 13 02:00:00 CEST 2021&quot;</example>
-        [DataMember(Name = "date", EmitDefaultValue = false)]
+        [DataMember(Name = "date", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// Requested earliest pickup time.
