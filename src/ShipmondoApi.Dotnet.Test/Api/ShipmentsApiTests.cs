@@ -12,12 +12,17 @@ using System.IO;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net;
 using System.Reflection;
+using NSubstitute;
+using NSubstitute.Extensions;
 using RestSharp;
 using Xunit;
 
 using ShipmondoApi.Dotnet.Client;
 using ShipmondoApi.Dotnet.Api;
+using ShipmondoApi.Dotnet.Model;
+
 // uncomment below to import models
 //using ShipmondoApi.Dotnet.Model;
 
@@ -131,9 +136,26 @@ namespace ShipmondoApi.Dotnet.Test.Api
         public void ShipmentsPostTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //CreateShipmentRequest body = null;
-            //var response = instance.ShipmentsPost(body);
-            //Assert.IsType<Shipment>(response);
+            var senderRequest = new SenderRequest(name: Faker.Name.FullName(), address1: Faker.Address.StreetAddress(),
+                zipcode: Faker.Address.ZipCode(), city: Faker.Address.City(),
+                countryCode: Faker.Country.TwoLetterCode());
+            var receiverRequest = new ReceiverRequest(name: Faker.Name.FullName(),
+                address1: Faker.Address.StreetAddress(), zipcode: Faker.Address.ZipCode(), city: Faker.Address.City(),
+                countryCode: Faker.Country.TwoLetterCode(), mobile: Faker.Phone.Number());
+            CreateShipmentRequest body = new CreateShipmentRequest(productCode: "something", serviceCodes: "something",
+                sender: senderRequest, receiver: receiverRequest,
+                parcels: new List<ParcelAdvanced>() { new ParcelAdvanced(weight: 1000) });
+            instance.Client = Substitute.For<ISynchronousClient>();
+            instance.Client.Configure().Post<Shipment>(Arg.Any<string>(), Arg.Any<RequestOptions>(), Arg.Any<IReadableConfiguration>())
+                .Returns((ci) =>
+                {
+                    var data = new Shipment();
+                    return new ApiResponse<Shipment>(HttpStatusCode.OK, data);
+                });
+            var response = instance.ShipmentsPost(body);
+            Assert.NotNull(response);
+            Assert.IsType<Shipment>(response);
+            
         }
 
         /// <summary>
